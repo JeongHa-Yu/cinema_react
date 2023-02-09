@@ -1,38 +1,149 @@
-.App {
-  text-align: center;
+:root{
+  --blue: #808c97;
+  --red: #a76b56;
+  --green: #7e8071;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: Georgia, serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+*{
+  box-sizing: border-box;
+}
+
+.title{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  color: var(--red);
+  border: 5px solid var(--red);
+  border-radius: 10px;
+  height: 50px;
+  font-size: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+main{
+  display: flex;
+  flex-flow: row nowrap;
+  height: calc(100% - 60px);
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 200px;
+    flex-shrink: 0;
+    border: 5px solid #808c97;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.sidebar > span{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1;
+    border: 5px solid #7e8071;
+    border-radius: 10px;
+    margin-left: 10px;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 300px;
+    min-height: 150px;
+    padding: 10px;
+    background-color: var(--green);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.card > img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.card > span{
+    text-align: center;
+    word-break: break-all;
+}
+
+@media (max-width: 1000px){
+    .card{
+        background: var(--red);
+    }
+}
+
+@media (max-width: 700px){
+    .card{
+        background: var(--blue);
+    }
+}
+
+button{
+    all:unset;
+    background-color: #808c97;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 6px;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_overlay{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_content{
+    background-color: white;
+    padding: 50px 100px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#actor, #imageAddress, #film{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
 }
